@@ -1,0 +1,204 @@
+You are a senior full-stack SaaS architect, technical SEO expert, local SEO strategist, 
+and AI search (AEO + GEO) specialist.
+
+Your task is to design and build a COMPLETE, PRODUCTION-READY web application that performs:
+
+• SEO Audit
+• AEO (Answer Engine Optimization) Audit
+• GEO (Generative Engine Optimization) Audit
+• Google My Business (GMB) / Google Business Profile Audit
+• Local Search & Map Pack Ranking Audit
+
+This app must be suitable for agencies, SaaS founders, and local businesses.
+
+--------------------------------------------------
+APP OBJECTIVE
+--------------------------------------------------
+Create an AI-powered audit platform that explains:
+“Why this website or business is NOT ranking in search, map pack, or AI answers — and exactly how to fix it.”
+
+--------------------------------------------------
+CORE FEATURES
+--------------------------------------------------
+
+1️⃣ WEBSITE INPUT
+- Website URL
+- Business Name
+- Primary Service
+- Target City
+- GMB Listing URL (optional)
+
+--------------------------------------------------
+2️⃣ SEO AUDIT MODULE
+Check and score:
+- Indexability (robots.txt, meta robots)
+- XML sitemap presence
+- Core Web Vitals (LCP, CLS, INP)
+- Page speed (mobile & desktop)
+- Title & meta description quality
+- H1–H6 structure
+- Internal linking
+- Image optimization
+- Schema markup detection
+- Duplicate content risks
+- Canonical tags
+- HTTPS & security headers
+
+Output:
+- SEO Score (0–100)
+- Critical / Medium / Low issues
+- Actionable fixes with examples
+
+--------------------------------------------------
+3️⃣ AEO (ANSWER ENGINE OPTIMIZATION) AUDIT
+Evaluate if content is suitable for:
+- Featured snippets
+- People Also Ask
+- Google SGE
+- ChatGPT / Gemini answers
+
+Check:
+- Presence of clear definitions (40–60 words)
+- FAQ blocks
+- Question-based headings
+- Bullet & list formatting
+- Short answer paragraphs
+- Entity clarity
+- FAQPage / HowTo schema
+- Conversational tone
+
+Output:
+- AEO Score
+- “AI Answer Readiness” rating
+- Missing AEO elements
+- Exact rewrite suggestions
+
+--------------------------------------------------
+4️⃣ GEO (GENERATIVE ENGINE OPTIMIZATION) AUDIT
+Measure AI visibility potential.
+
+Check:
+- Brand/entity consistency
+- About page authority
+- Author bios & credentials
+- E-E-A-T signals
+- Topical depth
+- Structured data coverage
+- External citations & mentions
+- Brand trust signals
+
+Simulate AI prompts like:
+- “Best [service] in [city]”
+- “What is [topic]”
+- “Is [brand] reliable”
+
+Output:
+- GEO Visibility Score
+- AI Citation Probability (%)
+- Brand mention readiness
+- Competitor AI advantage analysis
+
+--------------------------------------------------
+5️⃣ GMB / GOOGLE BUSINESS PROFILE AUDIT
+Analyze:
+- Business category relevance
+- NAP consistency
+- Profile completeness
+- Reviews count & velocity
+- Keyword presence in reviews
+- Business description optimization
+- Photos & geo-tag signals
+- Posts frequency
+- Services & products listing
+- Q&A optimization
+
+Output:
+- GMB Optimization Score
+- Map Pack Ranking Risk
+- Local trust signals
+- Missing profile elements
+
+--------------------------------------------------
+6️⃣ LOCAL SEARCH & MAP PACK AUDIT
+Evaluate:
+- City/service keyword alignment
+- Location landing pages
+- Local schema (LocalBusiness)
+- Proximity signals
+- Local backlinks
+- Citations consistency
+- Competitor density
+- Review gap analysis
+
+Output:
+- Local Ranking Score
+- Map Pack probability
+- Geo-specific improvement plan
+
+--------------------------------------------------
+7️⃣ COMPETITOR COMPARISON
+Allow users to:
+- Add up to 3 competitors
+- Compare SEO, AEO, GEO, GMB scores
+- Identify competitive gaps
+
+--------------------------------------------------
+8️⃣ FINAL REPORT & DASHBOARD
+Generate:
+- Overall Visibility Score
+- Individual module scores
+- Priority action list (Top 10)
+- AI-ready fixes
+- Downloadable PDF report
+- White-label option for agencies
+
+--------------------------------------------------
+TECH STACK REQUIREMENTS
+--------------------------------------------------
+Frontend:
+- Next.js / React
+- Tailwind CSS
+- Charts & score meters
+
+Backend:
+- Node.js + Python
+- Headless crawler (Puppeteer / Playwright)
+- PageSpeed Insights API
+- Schema & content parser
+
+AI:
+- LLM for content analysis & rewrite suggestions
+- Rule-based scoring logic (transparent)
+
+Database:
+- PostgreSQL or Firebase
+
+--------------------------------------------------
+SCORING LOGIC
+--------------------------------------------------
+- Explain scoring formula clearly
+- Each module weighted independently
+- Show how to improve each score
+
+--------------------------------------------------
+OUTPUT REQUIREMENTS
+--------------------------------------------------
+- Clean UI
+- Human-readable explanations
+- Step-by-step fixes
+- Agency-ready reporting
+- Scalable architecture
+
+--------------------------------------------------
+DELIVERABLES
+--------------------------------------------------
+1. App architecture diagram
+2. Database schema
+3. API flow
+4. UI wireframe description
+5. Scoring logic
+6. MVP roadmap
+7. Sample audit report
+8. Deployment strategy
+
+Build this as if it will be launched as a real SaaS product.
