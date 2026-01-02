@@ -15,26 +15,64 @@ const openai = new OpenAI({
 
 async function analyzeWithAI(content: string, type: 'seo' | 'aeo' | 'geo' | 'gmb') {
   const prompts = {
-    seo: "Analyze this website content for SEO. Return a JSON object with: score (0-100), findings (array of objects with type: 'critical'|'medium'|'low', message: string, fix: string). Focus on keywords, structure, and meta.",
-    aeo: "Analyze this content for AEO (Answer Engine Optimization). Is it concise? Does it answer questions? Return JSON with: score (0-100), findings (array of issues/fixes).",
-    geo: "Analyze this for GEO (Generative Engine Optimization). Does it have E-E-A-T signals? Return JSON with: score (0-100), findings.",
-    gmb: "Analyze this business info for Google Business Profile optimization. Return JSON with: score (0-100), findings.",
+    seo: `Analyze this website content for SEO. 
+    Return a JSON object with: 
+    - score (0-100)
+    - findings (array of objects with: 
+        type: 'critical' | 'medium' | 'low', 
+        message: string (DETAILED description of the issue), 
+        fix: string (EXACT step-by-step instructions to fix it)
+      ).
+    Focus on keywords, structure, meta tags, and internal linking. Ensure you provide at least 5 detailed findings.`,
+    aeo: `Analyze this content for AEO (Answer Engine Optimization). 
+    Return a JSON object with: 
+    - score (0-100)
+    - findings (array of objects with: 
+        type: 'critical' | 'medium' | 'low', 
+        message: string (DETAILED description of what's missing), 
+        fix: string (EXACT content rewrite or technical fix)
+      ).
+    Check for featured snippet suitability, FAQ structure, and conversational tone.`,
+    geo: `Analyze this for GEO (Generative Engine Optimization). 
+    Return a JSON object with: 
+    - score (0-100)
+    - findings (array of objects with: 
+        type: 'critical' | 'medium' | 'low', 
+        message: string (DETAILED explanation of E-E-A-T or topical depth issues), 
+        fix: string (SPECIFIC recommendations for improvement)
+      ).
+    Focus on brand authority, topical coverage, and citation potential.`,
+    gmb: `Analyze this business info for Google Business Profile optimization. 
+    Return a JSON object with: 
+    - score (0-100)
+    - findings (array of objects with: 
+        type: 'critical' | 'medium' | 'low', 
+        message: string (DETAILED description of profile or local trust issues), 
+        fix: string (STEP-BY-STEP optimization guide)
+      ).`,
   };
 
   try {
     const completion = await openai.chat.completions.create({
       model: "gpt-5.1",
       messages: [
-        { role: "system", content: "You are an expert SEO auditor. Output strictly valid JSON." },
-        { role: "user", content: `${prompts[type]}\n\nContent Preview:\n${content.substring(0, 5000)}` }
+        { role: "system", content: "You are a senior SEO/AEO strategist. You provide extremely detailed, actionable audit reports. Your output must be a valid JSON object matching the requested structure. Never return empty findings if a site can be improved." },
+        { role: "user", content: `${prompts[type]}\n\nContent Preview:\n${content.substring(0, 10000)}` }
       ],
       response_format: { type: "json_object" }
     });
 
-    return JSON.parse(completion.choices[0].message.content || "{}");
+    const result = JSON.parse(completion.choices[0].message.content || "{}");
+    
+    // Ensure structure consistency
+    if (!result.findings || !Array.isArray(result.findings)) {
+      result.findings = [];
+    }
+    
+    return result;
   } catch (e) {
     console.error(`AI Analysis failed for ${type}:`, e);
-    return { score: 50, findings: [{ type: "low", message: "AI analysis failed, using fallback.", fix: "Try again later." }] };
+    return { score: 50, findings: [{ type: "medium", message: "Detailed AI analysis encountered a temporary issue.", fix: "Please re-run the audit in a few minutes to get full recommendations." }] };
   }
 }
 
